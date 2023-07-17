@@ -109,136 +109,150 @@ const Form = () => {
             <form onSubmit={handleSubmit} className={style.form}>
                 <div className={style.inForm}>
                     <h2 className={style.title}>CREATE NEW RECIPE:</h2>
-                    <div className={style.inputCont}>
-                        {/* <label>Name: </label> */}
-                        <h4 className={style.label}>Title:</h4>
+                    <div>
+                        <div className={style.inputCont}>
+                            {/* <label>Name: </label> */}
+                            <h4 className={style.label}>Title:</h4>
 
-                        <input
-                            className={style.input}
-                            placeholder="Insert title: "
-                            required
-                            type="text"
-                            value={form.title}
-                            onChange={handleInputChange}
-                            name="title"
-                        />
-                        {errors.title && <p>{errors.title}</p>}
+                            <input
+                                className={style.input}
+                                placeholder="Insert title: "
+                                required
+                                type="text"
+                                value={form.title}
+                                onChange={handleInputChange}
+                                name="title"
+                            />
+                            {errors.title && <p>{errors.title}</p>}
+                        </div>
+                    </div>
+                    <div>
+                        <div className={style.inputCont}>
+                            {/* <label>Summary: </label> */}
+                            <h4 className={style.label}>Summary:</h4>
+
+                            <input
+                                className={style.input}
+                                placeholder="Insert summary: "
+                                required
+                                type="text"
+                                value={form.summary}
+                                onChange={handleInputChange}
+                                name="summary"
+                            />
+                            {errors.summary && <p>{errors.summary}</p>}
+                        </div>
                     </div>
 
-                    <div className={style.inputCont}>
-                        {/* <label>Summary: </label> */}
-                        <h4 className={style.label}>Summary:</h4>
+                    <div>
+                        <div className={style.inputCont}>
+                            {/* <label>Health score: </label> */}
+                            <h4 className={style.label}>Health score:</h4>
 
-                        <input
-                            className={style.input}
-                            placeholder="Insert summary: "
-                            required
-                            type="text"
-                            value={form.summary}
-                            onChange={handleInputChange}
-                            name="summary"
-                        />
-                        {errors.summary && <p>{errors.summary}</p>}
+                            <input
+                                className={style.input}
+                                placeholder="Insert health score:"
+                                required
+                                type="text"
+                                value={form.healthScore}
+                                onChange={handleInputChange}
+                                name="healthScore"
+                            />
+                            {errors.healthScore && <p>{errors.healthScore}</p>}
+                        </div>
                     </div>
 
-                    <div className={style.inputCont}>
-                        {/* <label>Health score: </label> */}
-                        <h4 className={style.label}>Health score:</h4>
+                    <div>
+                        <div className={style.inputCont}>
+                            {/* <label>Analyzed Instructions: </label> */}
+                            <h4 className={style.label}>Step by step:</h4>
 
-                        <input
-                            className={style.input}
-                            placeholder="Insert health score:"
-                            required
-                            type="text"
-                            value={form.healthScore}
-                            onChange={handleInputChange}
-                            name="healthScore"
-                        />
-                        {errors.healthScore && <p>{errors.healthScore}</p>}
+                            <input
+                                className={style.input}
+                                placeholder='Insert steps separated by "." :'
+                                type="text"
+                                value={form.analyzedInstructions}
+                                required
+                                onChange={handleInputChange}
+                                name="analyzedInstructions"
+                            />
+                            {errors.analyzedInstructions && (
+                                <p>{errors.analyzedInstructions}</p>
+                            )}
+                        </div>
                     </div>
 
-                    <div className={style.inputCont}>
-                        {/* <label>Analyzed Instructions: </label> */}
-                        <h4 className={style.label}>Step by step:</h4>
+                    <div>
+                        <div className={style.inputCont}>
+                            {/* <label>Image: </label> */}
+                            <h4 className={style.label}>Image:</h4>
 
-                        <input
-                            className={style.input}
-                            placeholder='Insert steps separated by "." :'
-                            type="text"
-                            value={form.analyzedInstructions}
-                            required
-                            onChange={handleInputChange}
-                            name="analyzedInstructions"
-                        />
-                        {errors.analyzedInstructions && (
-                            <p>{errors.analyzedInstructions}</p>
-                        )}
+                            <input
+                                className={style.input}
+                                type="text"
+                                placeholder="Insert image URL: "
+                                name="image"
+                                required
+                                onChange={handleInputChange}
+                                value={form.image}
+                            />
+                            {errors.image && <p>{errors.image}</p>}
+                        </div>
                     </div>
 
-                    <div className={style.inputCont}>
-                        {/* <label>Image: </label> */}
-                        <h4 className={style.label}>Image:</h4>
-
-                        <input
-                            className={style.input}
-                            type="text"
-                            placeholder="Insert image URL: "
-                            name="image"
-                            required
-                            onChange={handleInputChange}
-                            value={form.image}
-                        />
-                        {errors.image && <p>{errors.image}</p>}
-                    </div>
-
-                    <div className={style.inputCont}>
-                        <h4 className={style.label}>Diets:</h4>
-                        <select
-                            onChange={handleSelectDiet}
-                            className={style.input}
-                            required
-                            placeholder="Diets"
-                            name="diets"
-                            type="text"
-                        >
-                            <option value="">Select a diet:</option>
-                            {diets.map((diet, i) => {
-                                return (
-                                    <option key={i} value={diet}>
-                                        {diet}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        {errors.diet && <span>{errors.diet}</span>}
-                    </div>
-
-                    <div className={style.sidebar_box}>
-                        {form.diet.map((diet, i) => (
-                            <div
-                                key={i}
-                                value={diet}
-                                className={style.selectedItems}
+                    <div>
+                        <div className={style.inputCont}>
+                            <h4 className={style.label}>Diets:</h4>
+                            <select
+                                onChange={handleSelectDiet}
+                                className={style.input}
+                                required
+                                placeholder="Diets"
+                                name="diets"
+                                type="text"
                             >
-                                <p>{diet}</p>
-                                <button
-                                    type="button"
-                                    className={style.x}
-                                    onClick={() => handleDeleteDiet(i)}
+                                <option value="">Select a diet:</option>
+                                {diets.map((diet, i) => {
+                                    return (
+                                        <option key={i} value={diet}>
+                                            {diet}
+                                        </option>
+                                    );
+                                })}
+                            </select>
+                            {errors.diet && <span>{errors.diet}</span>}
+                        </div>
+                    </div>
+                    <div>
+                        <div className={style.sidebar_box}>
+                            {form.diet.map((diet, i) => (
+                                <div
+                                    key={i}
+                                    value={diet}
+                                    className={style.selectedItems}
                                 >
-                                    x
-                                </button>
-                            </div>
-                        ))}
+                                    <p>{diet}</p>
+                                    <button
+                                        type="button"
+                                        className={style.x}
+                                        onClick={() => handleDeleteDiet(i)}
+                                    >
+                                        x
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-                <button
-                    type="submit"
-                    className={style.boton}
-                    disabled={hasErrors}
-                >
-                    CREATE
-                </button>
+                <div>
+                    <button
+                        type="submit"
+                        className={style.boton}
+                        disabled={hasErrors}
+                    >
+                        CREATE
+                    </button>
+                </div>
             </form>
         </div>
     );
